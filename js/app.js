@@ -1,0 +1,1 @@
+var proveItApp = angular.module('ProveItApp', ['ProveItControllers']);
