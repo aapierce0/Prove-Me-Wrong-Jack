@@ -1,25 +1,50 @@
-var proveItControllers = angular.module('ProveItControllers', []);
+var proveItControllers = angular.module('ProveItControllers', ['ngSanitize']);
 
 
 
 
 proveItControllers.controller('ProveItSearchController', function($scope) {
 
+	$scope.templateURL;
+	$scope.setTemplateURL = function(filename) {
+		$scope.templateURL = "templates/"+filename;
+	}
+	$scope.setTemplateURL("blank.html");
 
-	$scope.demoResults = [];
-	$scope.submitDemoSearch = function() {
+	var knownTemplates = ["news1.html"];
 
-		$scope.demoResults = [];
 
-		// Create 10 fake results
-		for (var i = 0; i < 10; i++) {
-			var newResult = {
-				title: "BREAKING: "+$scope.demoSearchInput,
-				domain: "example.com",
-				bodyPreview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet efficitur est. Vivamus aliquam varius diam. Sed auctor molestie risus, eget sodales magna pulvinar in. Nulla molestie id risus at consectetur."
-			};
+	$scope.submitSearch = function(presetResult) {
 
-			$scope.demoResults.push(newResult);
+		$scope.setTemplateURL("news1.html");
+
+		if (presetResult)
+			$scope.searchInput = presetResult;
+
+		// If the search term is empty, switch to the blank template...
+		if (!$scope.searchInput || $scope.searchInput.length == 0) {
+			$scope.setTemplateURL("blank.html");
 		}
+
+		var unimportantWords = ["the", "for"];
+
+		// Parse the search input string.
+		// Split the query into words
+		var searchWords = $scope.searchInput.split(" ");
+
+		for (var i = searchWords.length - 1; i >= 0; i--) {
+
+			// Short words (< 3 letters) should not be bold
+			if (searchWords[i].length <= 2) {
+				searchWords[i] = "</strong>"+searchWords[i]+"<strong>";
+			}
+
+			// The word "The" should not be bold
+			if (_.contains(unimportantWords, searchWords[i].toLowerCase())) {
+				searchWords[i] = "</strong>"+searchWords[i]+"<strong>";
+			}
+		};
+
+		$scope.htmlSearchString = "<strong>"+searchWords.join(" ")+"</strong>";
 	};
 });
