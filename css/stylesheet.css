@@ -1,0 +1,134 @@
+/*
+Color theme: https://kuler.adobe.com/Lagoworks-color-theme-4305354/
+#002A40 - Dark Blue
+#254A66 - Light Blue
+#F2EAD5 - Tan
+#594048 - Light Plum
+#271119 - Dark Plum
+*/
+
+html, body {
+	background-color: #F2EAD5;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Lobster', cursive;
+	color: #254A66;
+}
+
+h1 em, h2 em, h3 em, h4 em, h5 em {
+	font-style: normal;
+	color: #002A40;
+}
+
+p {
+	padding-left:2em;
+}
+
+header.main-title {
+	background-color: #594048;
+
+	border-bototm: solid 1px #271119;
+
+	font-size: 1em;
+	text-align: center;
+	padding-top: 1.2em;
+	padding-bottom: 2em;
+	margin-bottom: 1em;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	header.main-title {
+		font-size: 1.5em;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	header.main-title {
+		font-size: 2em;
+	}
+}
+
+header.main-title h1,
+header.main-title h2
+{
+	color: #FFF;
+	text-shadow: #271119;
+	margin:0;
+}
+
+header.main-title h2 {
+	font-size: 1.5em;
+	text-shadow: 0px 3px 5px #271119;
+}
+
+header.main-title h1 {
+	font-size: 5em;
+	text-shadow: 0px 5px 15px #271119;
+}
+
+
+
+
+
+
+.demo-wrapper {
+	border-radius: 6px;
+	border: solid 1px #ccc;
+	background-color: white;
+	margin-bottom: 100px;
+}
+
+.demo-wrapper > .search-container {
+	margin-top: -1px;
+	margin-left: -1px;
+	margin-right: -1px;
+}
+
+.demo-wrapper .search-input-field, .demo-wrapper .search-submit-button {
+	border-bottom-left-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
+}
+
+.demo-wrapper .search-submit-button {
+	border-right-color: transparent;
+	background: transparent;
+}
+
+
+
+.demo-results {
+	padding: 1.5em;
+	padding-bottom:0;
+	height: 300px;
+
+	overflow: scroll;
+	margin-bottom: 0;
+}
+
+.demo-results li {
+	list-style: none;
+	margin-bottom: 23px;
+}
+
+.demo-results a.result-title {
+	display: block;
+	color: #1a0dab;
+	font-size: 1.1em;
+}
+
+.demo-results span.result-domain {
+	display: block;
+	color: #006621;
+}
+
+.demo-results span.result-body-preview {
+	display: block;
+	color: #545454;
+}
+
+
+
+

@@ -24,6 +24,9 @@
 	<script type="text/javascript" src="lib/js/ui-bootstrap-tpls-0.11.0.min.js"></script>
 
 
+	<!-- Load custome font from Google fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
 	<!-- Load Angular components -->
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
@@ -31,16 +34,49 @@
 	<!-- Load custom stylesheet -->
 	<link href="css/stylesheet.css" rel="stylesheet" />
 
+	<!-- Set the viewport for iOS devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 
 	<div ng-controller="ProveItSearchController">
 
+		<div class="container-fluid">
+			<header class="row main-title">
+				<h2>Prove Me Wrong...</h2>
+				<h1>Jack!</h1>
+			</header>
+		</div>
+
 		<div class="container">
+
 			<div class="row">
-				<div class="col-xs-12">
-					Search:
-					<input type="text" ng-model="searchText" />
+				<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+					<h3>Settle bets on <em>your</em> terms!</h3>
+					<p>Use <em>Prove Me Wrong</em> to create a fake listing of search results to fraudulently prove that you know your trivia.</p>
+
+
+					<h3>Try Me!</h3>
+					<div class="demo-wrapper">
+						<form class=" search-container" ng-submit="submitDemoSearch()">
+							<div class="input-group input-group-lg">
+								<input type="text" class="form-control search-input-field" placeholder="What do you want to prove?" ng-model="demoSearchInput">
+								<span class="input-group-btn">
+									<button class="btn btn-default search-submit-button" type="submit">Prove It!</button>
+								</span>
+							</div>
+						</form>
+
+						<ol class="demo-results">
+							<li ng-repeat="demoResult in demoResults" class="demo-result">
+								<a href="#" class="result-title">{{demoResult.title}}</a>
+								<span class="result-domain">{{demoResult.domain}}</span>
+								<span class="result-body-preview">{{demoResult.bodyPreview}}</span>
+							</li>
+						</ol>
+					</div>
 				</div>
 			</div>
 		</div>
