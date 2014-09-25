@@ -39,10 +39,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body>
+<body  ng-controller="ProveItSearchController" ng-class="{'not-stealth':!stealthMode, 'stealth':stealthMode}">
 
-	<div ng-controller="ProveItSearchController">
 
+
+
+
+	<div ng-hide="stealthMode">
 		<div class="container-fluid">
 			<header class="row main-title">
 				<h2>Prove Me Wrong...</h2>
@@ -75,13 +78,57 @@
 
 					</div>
 
-					<h3>Donate</h3>
+
+					<h3>Stealth Mode!</h3>
+					<p>Once you're familiar with how all this works, switch into <a href="#" ng-click="toggleStealthMode()">Stealth Mode</a> to disguise <em>Prove Me Wrong</em> as a legitimate search engine. This setting will be remembered next time you use <em>Prove Me Wrong</em>.</p>
+					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="toggleStealthMode()">Enter Stealth Mode</button>
+
+
+					<h3>Donate!</h3>
 					<p>Did you know that <a href="#" ng-click="submitSearch('curse blamed for yet more deaths of prominent bitcoin owners')">bitcoin is cursed</a>? You better let me hang onto them for you.</p>
 				</div>
 			</div>
 		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div ng-show="stealthMode">
+		
+		<div class="container">
+
+			<header>
+				<h1>JackSearch</h1>
+				<form class=" search-container" ng-submit="submitSearch()">
+					<div class="input-group input-group-lg">
+						<input type="text" class="form-control search-input-field" ng-model="searchInput">
+						<span class="input-group-btn">
+							<button class="btn btn-primary search-submit-button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</form>
+			</header>
+
+
+			<div class="results" ng-include="templateURL"></div>
+
+			<footer>
+				<a href="#" ng-click="toggleStealthMode()">Exit Stealth Mode</a>
+			</footer>
+		</div>
 
 	</div>
+
+
+
+
+
 
 </body>
 </html>

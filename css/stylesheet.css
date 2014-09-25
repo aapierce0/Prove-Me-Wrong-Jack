@@ -7,7 +7,7 @@ Color theme: https://kuler.adobe.com/Lagoworks-color-theme-4305354/
 #271119 - Dark Plum
 */
 
-html, body {
+body.not-stealth {
 	background-color: #F2EAD5;
 }
 
@@ -150,6 +150,29 @@ li.result span.result-body-preview {
 	display: block;
 	color: #545454;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.stealth .blank {
+	display: none;
+}
+
+
+
+
 
 
 

@@ -5,13 +5,34 @@ var proveItControllers = angular.module('ProveItControllers', ['ngSanitize']);
 
 proveItControllers.controller('ProveItSearchController', function($scope) {
 
+	window.$scope = $scope;
+
+	$scope.stealthMode = false || JSON.parse(localStorage['stealthMode']);
+	$scope.toggleStealthMode = function() {
+		$scope.stealthMode = !$scope.stealthMode;
+
+		// Cache the result in localstorage.
+		localStorage['stealthMode'] = JSON.stringify($scope.stealthMode);
+	};
+
+
+	
+
+
+
 	$scope.templateURL;
 	$scope.setTemplateURL = function(filename) {
 		$scope.templateURL = "templates/"+filename;
-	}
+	};
 	$scope.setTemplateURL("blank.html");
-
 	var knownTemplates = ["news1.html"];
+
+
+
+
+
+
+
 
 
 	$scope.submitSearch = function(presetResult) {
@@ -24,6 +45,7 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 		// If the search term is empty, switch to the blank template...
 		if (!$scope.searchInput || $scope.searchInput.length == 0) {
 			$scope.setTemplateURL("blank.html");
+			return;
 		}
 
 		var unimportantWords = ["the", "for"];
