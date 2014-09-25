@@ -7,14 +7,18 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 
 	window.$scope = $scope;
 
-	$scope.stealthMode = false || JSON.parse(localStorage['stealthMode']);
+	if (localStorage['stealthMode']) {
+		$scope.stealthMode = false || JSON.parse(localStorage['stealthMode']);
+	} else {
+		$scope.stealthMode = false;
+	}
+
 	$scope.toggleStealthMode = function() {
 		$scope.stealthMode = !$scope.stealthMode;
 
 		// Cache the result in localstorage.
 		localStorage['stealthMode'] = JSON.stringify($scope.stealthMode);
 	};
-
 
 	
 
