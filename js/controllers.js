@@ -34,7 +34,7 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 
 
 
-
+	$scope.htmlSearchString = "";
 	$scope.submitSearch = function(presetResult) {
 
 		$scope.setTemplateURL("news1.html");
@@ -43,6 +43,7 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 			$scope.searchInput = presetResult;
 
 		// If the search term is empty, switch to the blank template...
+		$scope.htmlSearchString = "";
 		if (!$scope.searchInput || $scope.searchInput.length == 0) {
 			$scope.setTemplateURL("blank.html");
 			return;

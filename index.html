@@ -101,22 +101,24 @@
 
 	<div ng-show="stealthMode">
 		
-		<div class="container">
+		<div class="container-fluid stealth-search-wrapper" ng-class="{'hero-view':htmlSearchString.length == 0}">
 
-			<header>
-				<h1>JackSearch</h1>
-				<form class=" search-container" ng-submit="submitSearch()">
-					<div class="input-group input-group-lg">
-						<input type="text" class="form-control search-input-field" ng-model="searchInput">
-						<span class="input-group-btn">
-							<button class="btn btn-primary search-submit-button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-						</span>
-					</div>
-				</form>
+			<header class="row">
+				<div class="container">
+					<h1>JackSearch</h1>
+					<form class=" search-container" ng-submit="submitSearch()">
+						<div class="input-group input-group-lg">
+							<input type="text" class="form-control search-input-field" ng-model="searchInput">
+							<span class="input-group-btn">
+								<button class="btn btn-primary search-submit-button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+							</span>
+						</div>
+					</form>
+				</div>
 			</header>
 
 
-			<div class="results" ng-include="templateURL"></div>
+			<div class="results container" ng-include="templateURL"></div>
 
 			<footer>
 				<a href="#" ng-click="toggleStealthMode()">Exit Stealth Mode</a>
