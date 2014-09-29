@@ -154,6 +154,20 @@ li.result span.result-body-preview {
 
 
 
+div.bitcoin-address {
+	padding: 1em;
+	text-align: center;
+	width: auto;
+	background-color: white;
+	border-radius: 6px;
+	border: solid 1px #ccc;
+}
+
+
+div.bitcoin-address .text-address {
+	margin-top: 1em;
+	font-family: Inconsolata, Menlo, monospace;
+}
 
 
 
