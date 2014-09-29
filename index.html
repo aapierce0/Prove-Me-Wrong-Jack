@@ -2,13 +2,14 @@
 <html ng-app="ProveItApp">
 <head>
 
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
+	
 	<!-- Load all libraries -->
 	<script type="text/javascript" src="lib/js/underscore-min.js"></script>
 	<script type="text/javascript" src="lib/js/angular.min.js"></script>
 	<script type="text/javascript" src="lib/js/angular-sanitize.min.js"></script>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script type="text/javascript" src="lib/js/jquery-2.1.1.min.js"></script>
 
 	<!-- Bootstrap -->
 	<link href="lib/css/bootstrap.min.css" rel="stylesheet" />
@@ -112,9 +113,9 @@
 			<header class="row">
 				<div class="container">
 					<h1>JackSearch</h1>
-					<form class=" search-container" ng-submit="submitSearch()">
+					<form class=" search-container" ng-submit="submitSearch()" role="search" action="">
 						<div class="input-group">
-							<input type="text" class="form-control search-input-field" ng-model="searchInput">
+							<input type="search" name="search" class="form-control search-input-field" ng-model="searchInput" id="stealthSearchField">
 							<span class="input-group-btn">
 								<button class="btn btn-primary search-submit-button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 							</span>

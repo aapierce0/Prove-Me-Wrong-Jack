@@ -41,6 +41,10 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 	$scope.htmlSearchString = "";
 	$scope.submitSearch = function(presetResult) {
 
+		// Need to use setTimeout here, so the blur call is kicked outside of Angular's $apply.
+		// If we don't do this, Angular will compain that we're manipulating the DOM directly within an $apply, which is a no-no.
+		setTimeout(function() {angular.element("#stealthSearchField").blur()}, 0);
+
 		$scope.setTemplateURL("news1.html");
 
 		if (presetResult)
@@ -50,7 +54,7 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 		$scope.htmlSearchString = "";
 		if (!$scope.searchInput || $scope.searchInput.length == 0) {
 			$scope.setTemplateURL("blank.html");
-			return;
+			return false;
 		}
 
 		var unimportantWords = ["the", "for"];
@@ -73,5 +77,7 @@ proveItControllers.controller('ProveItSearchController', function($scope) {
 		};
 
 		$scope.htmlSearchString = "<strong>"+searchWords.join(" ")+"</strong>";
+
+		return false;
 	};
 });
