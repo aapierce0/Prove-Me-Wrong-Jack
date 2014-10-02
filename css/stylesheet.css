@@ -117,7 +117,7 @@ header.main-title h1 {
 
 .demo-results h1.blank {
 	text-align: center;
-	font-size: 4em;
+	font-size: 3em;
 	opacity: 0.1;
 	margin-top: 80px;
 
@@ -128,6 +128,20 @@ header.main-title h1 {
 	-ms-user-select: none;
 	user-select: none;
 	cursor: default;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.demo-results h1.blank {
+		font-size: 3.5em;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.demo-results h1.blank {
+		font-size: 4em;
+	}
 }
 
 li.result {
