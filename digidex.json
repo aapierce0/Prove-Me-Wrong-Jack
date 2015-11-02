@@ -1,6 +1,8 @@
 {
 	"name":"Prove Me Wrong, Jack!",
+	"description":"Fool your friends with this gag web app. Simply enter any search term into the fake search field, and it will automatically generate fake results to prove your claim!",
 	"homepage":"http://provemewrongjack.com",
+	"find me on github":"https://github.com/aapierce0/Prove-Me-Wrong-Jack",
 	"_shareURL":"http://provemewrongjack.com",
 	"_cardURL":"http://provemewrongjack.com/digidex.png"
 }
